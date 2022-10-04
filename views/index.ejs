@@ -6,18 +6,22 @@
     <meta name="copyright" content="Ryan Large" />
     <meta name="description" content="A complete Node.js server." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Gemunu+Libre&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" type="text/css" media="all" />
     <script
       defer
-      src="script.js"
-      type="text/javascript"
+      src="./JavaScript/script.js"
+      type="module"
       charset="utf-8"
     ></script>
     <title>Node.js</title>
   </head>
-  <body>
-    <h1>NPM Commands</h1>
-    <form method="post" accept-charset="utf-8">
+  <body class="flex-col">
+  	<%- include('./partials/Nav.html'); %>
+  	<%- include('./partials/Header.html'); %>
+    <form method="post" accept-charset="utf-8" autocomplete="off">
       <label for="command">New Command</label>
       <input type="text" name="command" id="command" />
       <label for="desc">Description</label>

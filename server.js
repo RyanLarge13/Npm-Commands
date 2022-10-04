@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 dotenv.config();
 import { router } from "./routes/commandRoutes.js";
+import { registerRouter } from "./routes/registerRoute.js";
 import bodyParser from "body-parser";
 import path from "path";
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.use(express.static("views"));
 app.use("/", router);
+app.use("/", registerRouter);
 
 connectDB();
 

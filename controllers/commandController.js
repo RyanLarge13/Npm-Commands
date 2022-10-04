@@ -3,7 +3,7 @@ import { Command } from "../models/commandModel.js";
 export const getAllCommands = async (req, res) => {
   try {
     const allCommands = await Command.find({});
-    res.status(201).render("index", {
+    res.status(200).render("index", {
       commands: allCommands,
     });
   } catch (err) {
@@ -18,7 +18,7 @@ export const postCommand = async (req, res) => {
       Description: req.body.desc,
     });
     newCommand.save();
-    res.status(201);
+    res.status(200);
   } catch (err) {
     console.log(err);
   }
