@@ -1,5 +1,5 @@
 import { User } from "../models/userModel.js";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 
 export const renderRegister = async (req, res) => {
   res.render("html/register");
@@ -7,13 +7,14 @@ export const renderRegister = async (req, res) => {
 
 export const registerUser = async (req, res) => {
   try {
+    const hash = await bcrypt.hash(req.body.registerPassword, 10);
     await User.findOne({ Username: req.body.registerName })
       .then((user) => {
         if (!user) {
           const newUser = new User({
             Username: req.body.registerName,
             Email: req.body.registerEmail,
-            Password: req.body.registerPassword,
+            Password: hash,
           });
           newUser.save();
           res.status(200);
