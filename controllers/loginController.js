@@ -15,7 +15,6 @@ export const loginUser = async (req, res) => {
             if (err) console.log(err);
             if (result) {
               const name = user.Username;
-              console.log("Password matches!!!!");
               res.render("html/dashboard", {
                 name: name,
               });
