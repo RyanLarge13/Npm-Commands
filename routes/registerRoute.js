@@ -6,4 +6,7 @@ import {
 
 export const registerRouter = express.Router();
 
-registerRouter.route("/register").get(renderRegister).post(registerUser);
+registerRouter
+  .route("/register")
+  .get(renderRegister)
+  .post(registerUser);

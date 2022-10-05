@@ -1,5 +1,5 @@
 import { User } from "../models/userModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 export const renderRegister = async (req, res) => {
   res.render("html/register");
