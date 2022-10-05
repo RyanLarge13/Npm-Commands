@@ -7,24 +7,24 @@ export const renderRegister = async (req, res) => {
 
 export const registerUser = async (req, res) => {
   try {
-    const hash = await bcrypt.hash(req.body.registerPassword, 10);
-    await User.findOne({ Username: req.body.registerName })
+    const hash = await bcrypt.hash(req.body.password, 10);
+    await User.findOne({ Username: req.body.username })
       .then((user) => {
         if (!user) {
           const newUser = new User({
-            Username: req.body.registerName,
-            Email: req.body.registerEmail,
+            Username: req.body.username,
+            Email: req.body.email,
             Password: hash,
           });
           newUser.save();
-          res.status(200);
+          res.status(200).redirect('/login');
         } else {
           res.status(400).json({ message: "This user already exists." });
         }
       })
       .catch((err) => {
         console.log(err);
-        res.status(400).json({ Error: err });
+        res.status(400).redirect('/register');
       });
   } catch (err) {
     console.log(err);

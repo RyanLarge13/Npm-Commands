@@ -23,13 +23,13 @@
   	<%- include('../partials/Nav.html'); %>
   	<%- include('../partials/Header.html'); %>
   	<h1 class="register-heading">Register For A New Account!</h1>
-  	<form method="post">
-  		<label for="registerName">Username</label>
-  		<input type="text" name="registerName" id="registerName" />
-  		<label for="registerEmail">Email</label>
-  		<input type="email" name="registerEmail" id="registerEmail"/>
+  	<form action="/register" method="post">
+  		<label for="username">Username</label>
+  		<input type="text" name="username" id="username" />
+  		<label for="email">Email</label>
+  		<input type="email" name="email" id="email"/>
   		<label for="registerPassword">Password</label>
-  		<input type="password" name="registerPassword" id="registerPassword"/>
+  		<input type="password" name="password" id="password"/>
   		<button type="submit">Create Account</button>
   	</form>
   </body>
