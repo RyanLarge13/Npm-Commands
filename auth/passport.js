@@ -10,10 +10,10 @@ export const initialize = async (passport, getUserById) => {
   const authenticateUser = async (email, password, done) => {
     await User.findOne({ Email: email }).then(async (user) => {
       if (!user)
-        return done(null, false, { message: "No user with that email." });
+      return done(null, false, { message: "No user with that email." });
       try {
         if (await bcrypt.compare(password, user.Password)) {
-          const accessToken = jwt.sign({ user }, process.env.JWT_SECRET);
+          const accessToken = jwt.sign({ user }, process.env.JWT_SECRET, { expiresIn: '1d' });
           return done(null, user);
         } else {
           return done(null, false, { message: "Password is incorrect" });

@@ -10,6 +10,19 @@ import { initialize } from "./auth/passport.js";
 import passport from "passport";
 import flash from "express-flash";
 import session from "express-session";
+import childProcess from 'child_process';
+import { authenticateToken } from './auth/auth.js';
+
+const posts = [
+    {
+    username: 'RyanLarge',
+    text: 'this is my first post!!!'
+    },
+    {
+      username: 'Billy joe!',
+      text: 'This is a post from Billy. Fuck that guy.'
+    }
+]
 
 initialize(passport, (id) =>
   User.find({ _id: id }).then((user) => {
@@ -37,14 +50,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.set("view engine", "ejs");
 app.use(express.static("views"));
-// app.use("/", router, registerRouter, loginRouter);
 app.use("/", router, registerRouter);
+// app.use("/", router, registerRouter, loginRouter);
 
 app.get("/login", (req, res) => {
   res.render("html/login");
 });
 
-app.get("/dashboard", (req, res) => {
+app.get("/dashboard", authenticateToken, (req, res) => {
+  // console.log((posts.filter(post => post.username === req.user.Username)));
   User.findOne({ Username: req.user[0].Username }).then((user) => {
     if (!user) console.log("ERROR!!!!!!!!!");
     else {
@@ -66,4 +80,7 @@ app.post(
 
 connectDB();
 
-app.listen(PORT, () => console.log(`Your app is running on port ${PORT}`));
+app.listen(PORT, () => {
+  // childProcess.exec('start http://localhost:8080/');
+  console.log(`Your app is running on port ${PORT}`);
+});
