@@ -10,6 +10,7 @@ import { initialize } from "./auth/passport.js";
 import passport from "passport";
 import flash from "express-flash";
 import session from "express-session";
+
 initialize(passport, (id) =>
   User.find({ _id: id }).then((user) => {
     return user;
@@ -44,10 +45,6 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/dashboard", (req, res) => {
-  /* console.log(req.user[0].Username);
-  res.render("html/dashboard", {
-    name: req.user.Username,
-  }); */
   User.findOne({ Username: req.user[0].Username }).then((user) => {
     if (!user) console.log("ERROR!!!!!!!!!");
     else {

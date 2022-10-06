@@ -1,6 +1,9 @@
 import bcrypt from "bcryptjs";
 import localStrategy from "passport-local";
 import { User } from "../models/userModel.js";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
 localStrategy.Strategy;
 
 export const initialize = async (passport, getUserById) => {
@@ -10,6 +13,7 @@ export const initialize = async (passport, getUserById) => {
         return done(null, false, { message: "No user with that email." });
       try {
         if (await bcrypt.compare(password, user.Password)) {
+          const accessToken = jwt.sign({ user }, process.env.JWT_SECRET);
           return done(null, user);
         } else {
           return done(null, false, { message: "Password is incorrect" });
