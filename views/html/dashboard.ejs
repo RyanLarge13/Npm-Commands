@@ -20,7 +20,14 @@
     <title>Document</title>
 </head>
 <body>
-	<%- include('../partials/Nav.html'); %>
+	<%- //include('../partials/Nav.html'); %>
+<nav class="flex-reg">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/logout">Logout</a></li>
+  </ul>
+</nav>
 	<%- include('../partials/Header.html'); %>
     <h1> <%= name %> </h1>
 </body>
