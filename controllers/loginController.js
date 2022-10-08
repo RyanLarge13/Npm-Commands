@@ -8,7 +8,7 @@ export const renderLogin = (req, res) => {
   res.render("html/login");
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
   const { email, password } = req.body;
   const user = await User.findOne({ Email: email });
 
@@ -27,11 +27,8 @@ export const login = async (req, res) => {
               "Sorry, but this is just not working. Instead of coding why don't you go fuck yourself?",
           });
         } else {
-          console.log(token);
-          res.set({ Authorization: `Bearer ${token}` });
-          res.render("html/dashboard", {
-            name: user.Username,
-          });
+          res.send({ Authorization: `Bearer ${token}` });
+          next();
         }
       }
     );
@@ -41,5 +38,3 @@ export const login = async (req, res) => {
     });
   }
 };
-
-export const renderPosts = (req, res) => {};
