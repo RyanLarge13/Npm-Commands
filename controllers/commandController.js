@@ -18,7 +18,7 @@ export const postCommand = async (req, res) => {
       Description: req.body.desc,
     });
     newCommand.save();
-    res.status(200);
+    res.status(200).redirect('/');
   } catch (err) {
     console.log(err);
   }

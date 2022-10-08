@@ -23,6 +23,7 @@
   	<%- include('../partials/Nav.html'); %>
     <%- include('../partials/Header.html'); %>
     <h1 class="login-heading">Login!!</h1>
+    <h1><%= typeof err!='undefined' ? err : '' %></h1>
     <form action="/login" method="post">
       <label for="email">Email</label>
       <input type="email" name="email" id="email" />

@@ -1,11 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
-import { User } from "./models/userModel.js";
 import { connectDB } from "./config/db.js";
 import { router } from "./routes/commandRoutes.js";
 import { registerRouter } from "./routes/registerRoute.js";
-import passport from "passport";
+import { loginRouter } from './routes/loginRoute.js';
 import childProcess from "child_process";
 dotenv.config();
 
@@ -18,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.set("view engine", "ejs");
 app.use(express.static("views"));
-app.use("/", router, registerRouter);
+app.use("/", router, registerRouter, loginRouter);
 
 connectDB();
 
