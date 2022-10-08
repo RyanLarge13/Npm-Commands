@@ -1,16 +1,18 @@
 import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
+import cors from 'cors';
 import { connectDB } from "./config/db.js";
 import { router } from "./routes/commandRoutes.js";
 import { registerRouter } from "./routes/registerRoute.js";
-import { loginRouter } from './routes/loginRoute.js';
+import { loginRouter } from "./routes/loginRoute.js";
 import childProcess from "child_process";
 dotenv.config();
 
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
