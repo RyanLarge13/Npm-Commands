@@ -17,8 +17,11 @@ export const registerUser = async (req, res) => {
             Password: hash,
           });
           newUser.save();
+          res.redirect('/login');
         } else {
-          res.status(400).json({ message: "This user already exists." });
+          res.render('html/register', {
+            err: 'This user already exsists'
+          })
         }
       })
       .catch((err) => {

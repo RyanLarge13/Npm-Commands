@@ -23,6 +23,9 @@
   	<%- include('../partials/Nav.html'); %>
   	<%- include('../partials/Header.html'); %>
   	<h1 class="register-heading">Register For A New Account!</h1>
+    <h2>
+      <%= typeof err!=='undefined' ? err : '' %>
+    </h2>
   	<form action="/register" method="post">
   		<label for="username">Username</label>
   		<input type="text" name="username" id="username" />
