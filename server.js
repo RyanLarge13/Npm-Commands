@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
-import cors from 'cors';
+import cors from "cors";
 import session from "express-session";
 import passport from "passport";
 import { connectDB } from "./config/db.js";
@@ -17,11 +17,13 @@ authorize(passport);
 const PORT = process.env.PORT || 8080;
 const app = express();
 
-app.use(session({
-  secret: 'secret',
-  resave: true,
-  saveUninitialized: true,
-}));
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -1,5 +1,5 @@
 export const renderDash = (req, res) => {
     res.render('html/dashboard', {
-        name: 'Billy',
+        name: req.user.Username,
     });
 };
