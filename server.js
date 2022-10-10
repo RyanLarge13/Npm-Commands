@@ -31,9 +31,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.set("view engine", "ejs");
 app.use(express.static("views"));
-app.use("/", router, registerRouter, loginRouter, dashRouter);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use("/", router, registerRouter, loginRouter, dashRouter);
 
 connectDB();
 

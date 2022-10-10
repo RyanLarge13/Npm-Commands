@@ -14,16 +14,6 @@ export const authorize = (passport) => {
                     } else {
                         done(null, false, { message: 'Your password is incorrect.'});
                     }
-                    // if (isMatch) {
-                    //     console.log('You match!')
-                    //     done(null, user);
-                    // }
-                    // if (err) {
-                    //     console.log(`You are having an error: ${err}`);
-                    // }
-                    // else {
-                    //     done(null, false, { message: 'Password is incorrect '});
-                    // }
                 });
             }).catch((err) => console.log(err));
         })

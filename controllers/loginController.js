@@ -7,7 +7,7 @@ export const renderLogin = (req, res) => {
 
 export const loginHandle = (req, res, next) => {
   passport.authenticate('local', {
-    successRedirect: 'dashboard',
+    successRedirect: '/dashboard',
     failureRedirect: '/login',
   })(req, res, next);
 };
