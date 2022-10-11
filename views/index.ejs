@@ -19,7 +19,7 @@
     <title>Node.js</title>
   </head>
   <body class="flex-col">
-  	<% if (typeof user.Username === undefined) { %>
+  	<% if (user === undefined) { %>
       <%- include('./partials/Nav.html') %>
     <% } else { %>
        <%- include('./partials/LoggedIn.html') %>
