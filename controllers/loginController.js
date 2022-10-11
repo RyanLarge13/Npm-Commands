@@ -11,3 +11,16 @@ export const loginHandle = (req, res, next) => {
     failureRedirect: '/login',
   })(req, res, next);
 };
+
+export const logout = (req, res) => {
+  if (req.session) {
+    req.session.destroy((err) => {
+      if (err) res.send('Unable to logout.');
+      else res.render('html/login', {
+        success: 'You have successfully logged out',
+      });
+    });
+  } else {
+    res.end();
+  }
+};  

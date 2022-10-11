@@ -1,0 +1,1 @@
+localStorage.setItem('Check', 'I am in');

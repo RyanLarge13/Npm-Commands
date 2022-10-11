@@ -17,17 +17,11 @@
       type="module"
       charset="utf-8"
     ></script>
+    <script defer src="../JavaScript/dashboard.js"></script>
     <title>Document</title>
 </head>
 <body>
-	<%- //include('../partials/Nav.html'); %>
-<nav class="flex-reg">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/dashboard">Dashboard</a></li>
-    <li><a href="/logout">Logout</a></li>
-  </ul>
-</nav>
+	<%- include('../partials/LoggedIn.html'); %>
 	<%- include('../partials/Header.html'); %>
     <h1> <%= name %> </h1>
 </body>
