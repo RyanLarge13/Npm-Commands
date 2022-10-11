@@ -4,6 +4,7 @@ export const getAllCommands = async (req, res) => {
   try {
     const allCommands = await Command.find({});
     res.status(200).render("index", {
+      user: req.user,
       commands: allCommands,
     });
   } catch (err) {

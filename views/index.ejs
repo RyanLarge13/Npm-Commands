@@ -19,8 +19,12 @@
     <title>Node.js</title>
   </head>
   <body class="flex-col">
-  	<%- typeof LoggedIn !== String ? include('./partials/LoggedIn.html') : include('./partials/Nav.html') %>
-  	<%- include('./partials/Header.html'); %>
+  	<% if (typeof user.Username === undefined) { %>
+      <%- include('./partials/Nav.html') %>
+    <% } else { %>
+       <%- include('./partials/LoggedIn.html') %>
+    <% } %>
+    <%- include('./partials/Header.html') %>
     <form method="post" accept-charset="utf-8" autocomplete="off">
       <label for="command">New Command</label>
       <input type="text" name="command" id="command" />
