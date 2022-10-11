@@ -1,1 +1,7 @@
-localStorage.setItem('Check', 'I am in');
+localStorage.setItem("Check", "true");
+
+const logout = () => {
+  localStorage.removeItem("Check");
+};
+
+document.querySelector(".logout").addEventListener("click", logout);
