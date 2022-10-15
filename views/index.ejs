@@ -39,6 +39,12 @@
     	  		<h2> <%= item.Command %> </h2>
     	  		<p> <%= item.Description %> </p>
     	  	</div>
+          <% if (user) { %>
+            <form method="get" action="/add">
+              <input type="hidden" name="title" value=" <%= item.Command %>" />
+              <button type="submit">Add Fav</button>
+            </form>
+          <% } %>
       	<% }); %>
       </div>
     </section>

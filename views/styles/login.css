@@ -3,3 +3,17 @@
     margin-top: 1em;
     margin-bottom: 2em;
 }
+
+h2 {
+    text-align: center;
+    margin: .25em 0 2em 0;
+}
+
+.err {
+    color: #cc0000;
+
+}
+
+.success {
+    color: #00bb00;
+}

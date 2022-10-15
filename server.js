@@ -10,7 +10,6 @@ import { registerRouter } from "./routes/registerRoute.js";
 import { loginRouter } from "./routes/loginRoute.js";
 import { authorize } from "./auth/passport.js";
 import { dashRouter } from "./routes/dashRoutes.js";
-import childProcess from "child_process";
 dotenv.config();
 authorize(passport);
 
@@ -38,6 +37,5 @@ app.use("/", router, registerRouter, loginRouter, dashRouter);
 connectDB();
 
 app.listen(PORT, () => {
-  // childProcess.exec('start http://localhost:8080/');
-  console.log(`Your app is running on port ${PORT}`);
+  console.log(`Your app is running on port ${PORT} : http://localhost:8080/`);
 });
