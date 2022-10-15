@@ -13,6 +13,7 @@ const userModel = mongoose.Schema({
     type: String,
     required: true,
   },
+  FavoriteCommands: [Object],
 });
 
 export const User = mongoose.model('User', userModel);

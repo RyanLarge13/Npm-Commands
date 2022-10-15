@@ -28,10 +28,9 @@ export const postCommand = async (req, res) => {
 
 export const addFav = async (req, res) => {
   const title = req.query.title;
-  const user = await User.findOne({ Username: req.user.Username });
+  const user = req.user;
   const command = await Command.findOne({ command: title });
-  console.log(user)
-  // user.FavoriteCommands.push(command);
-  // user.save(done);
-  // res.redirect('/');
+  user.FavoriteCommands.push(command);
+  user.save();
+  res.redirect('/');
 };

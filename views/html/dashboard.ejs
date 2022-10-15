@@ -23,6 +23,20 @@
 <body>
 	<%- include('../partials/LoggedIn.html'); %>
 	<%- include('../partials/Header.html'); %>
-    <h1> <%= name %> </h1>
+    <h1> <%= name %>'s Dashboard </h1>
+    <% if (favorites.length < 1) { %>
+      <h2>You have no favorite commands. <a href="/">Add Favorites</a></h2>
+    <% } else { %>
+      <section class="commands-container">
+        <div class="list">
+          <% favorites.forEach((item) => { %>
+            <div class="item">
+              <h2> <%= item.Command %> </h2>
+              <p> <%= item.Description %> </p>
+            </div>
+          <% }); %> 
+        </div>
+      </section>
+      <% } %>
 </body>
 </html>
