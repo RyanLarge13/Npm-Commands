@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const commandModel = mongoose.Schema({
-  Command: {
+  Title: {
     type: String,
     required: true,
   },
@@ -9,6 +9,7 @@ const commandModel = mongoose.Schema({
     type: String,
     required: true,
   },
+  strictQuery: false, 
 });
 
 export const Command = mongoose.model("Command", commandModel);

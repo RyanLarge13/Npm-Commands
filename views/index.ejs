@@ -27,7 +27,7 @@
     <%- include('./partials/Header.html') %>
     <form method="post" accept-charset="utf-8" autocomplete="off">
       <label for="command">New Command</label>
-      <input type="text" name="command" id="command" />
+      <input type="text" name="title" id="title" />
       <label for="desc">Description</label>
       <input type="text" name="desc" id="desc" />
       <button type="submit">Add</button>
@@ -36,12 +36,12 @@
       <div class="list">
     	  <% commands.forEach((item) => { %>
     	  	<div class="item">
-    	  		<h2> <%= item.Command %> </h2>
+    	  		<h2> <%= item.Title %> </h2>
     	  		<p> <%= item.Description %> </p>
     	  	</div>
           <% if (user) { %>
-            <form method="get" action="/add">
-              <input type="hidden" name="title" value=" <%= item.Command %>" />
+            <form method="post" action="/add">
+              <input type="hidden" name="id" value="<%=item._id%>" />
               <button type="submit">Add Fav</button>
             </form>
           <% } %>

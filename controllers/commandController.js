@@ -16,21 +16,26 @@ export const getAllCommands = async (req, res) => {
 export const postCommand = async (req, res) => {
   try {
     const newCommand = new Command({
-      Command: req.body.command,
+      Title: req.body.title,
       Description: req.body.desc,
     });
     newCommand.save();
-    res.status(200).redirect('/');
+    res.status(200).redirect("/");
   } catch (err) {
     console.log(err);
   }
 };
 
 export const addFav = async (req, res) => {
-  const title = req.query.title;
+  const id = req.body.id;
   const user = req.user;
-  const command = await Command.findOne({ command: title });
+  await Command.findById(id)
+    .then((command) => {
   user.FavoriteCommands.push(command);
   user.save();
-  res.redirect('/');
+  res.status(204).send();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };

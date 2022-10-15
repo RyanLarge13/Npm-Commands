@@ -8,4 +8,4 @@ import {
 export const router = express.Router();
 
 router.route("/").get(getAllCommands).post(postCommand);
-router.route('/add').get(addFav);
+router.route('/add').post(addFav);

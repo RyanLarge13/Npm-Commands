@@ -31,8 +31,12 @@
         <div class="list">
           <% favorites.forEach((item) => { %>
             <div class="item">
-              <h2> <%= item.Command %> </h2>
+              <h2> <%= item.Title %> </h2>
               <p> <%= item.Description %> </p>
+              <form method="post" action="/delete">
+              	<input type="hidden" name="title" value="<%=item.Title%>" />
+              	<button type="submit">Delete</button>
+              </form>
             </div>
           <% }); %> 
         </div>

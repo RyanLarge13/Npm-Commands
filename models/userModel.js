@@ -16,4 +16,4 @@ const userModel = mongoose.Schema({
   FavoriteCommands: [Object],
 });
 
-export const User = mongoose.model('User', userModel);
+export const User = mongoose.model("User", userModel);
