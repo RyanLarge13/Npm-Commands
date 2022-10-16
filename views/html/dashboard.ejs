@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Gemunu+Libre&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../styles/dashboard.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../partials/Footer/Footer.css" />
     <script
       defer
       src="../JavaScript/script.js"
@@ -18,12 +19,13 @@
       charset="utf-8"
     ></script>
     <script defer src="../JavaScript/dashboard.js"></script>
+    <script defer src="https://kit.fontawesome.com/a673862905.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
 	<%- include('../partials/LoggedIn.html'); %>
 	<%- include('../partials/Header.html'); %>
-    <h1> <%= name %>'s Dashboard </h1>
+    <h1 class="dash-h1"> <%= name %>'s Dashboard </h1>
     <% if (favorites.length < 1) { %>
       <h2>You have no favorite commands. <a href="/">Add Favorites</a></h2>
     <% } else { %>
@@ -35,12 +37,13 @@
               <p> <%= item.Description %> </p>
               <form method="post" action="/delete">
               	<input type="hidden" name="title" value="<%=item.Title%>" />
-              	<button type="submit">Delete</button>
+              	<button class="delete-fav" type="submit">Delete</button>
               </form>
             </div>
           <% }); %> 
         </div>
       </section>
       <% } %>
+      <%- include('../partials/Footer/Footer.ejs'); %>
 </body>
 </html>

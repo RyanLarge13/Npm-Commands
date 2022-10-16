@@ -10,12 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Gemunu+Libre&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="./partials/Footer/Footer.css" type="text/css" media="all" />
     <script
       defer
       src="./JavaScript/script.js"
       type="module"
       charset="utf-8"
     ></script>
+    <script defer src="https://kit.fontawesome.com/a673862905.js" crossorigin="anonymous"></script>
     <title>Node.js</title>
   </head>
   <body class="flex-col">
@@ -42,11 +44,12 @@
           <% if (user) { %>
             <form method="post" action="/add">
               <input type="hidden" name="id" value="<%=item._id%>" />
-              <button type="submit">Add Fav</button>
+              <button class="add-fav" type="submit">Add Fav</button>
             </form>
           <% } %>
       	<% }); %>
       </div>
     </section>
+    <%- include('./partials/Footer/Footer.ejs') %>
   </body>
 </html>
