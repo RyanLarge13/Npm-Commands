@@ -3,3 +3,9 @@
   margin-top: 1em;
   margin-bottom: 2em;
 }
+
+.err {
+  text-align: center;
+  color: #cc0000;
+  margin-bottom: 2em;
+}

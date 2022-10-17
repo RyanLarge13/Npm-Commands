@@ -18,11 +18,12 @@
       type="module"
       charset="utf-8"
     ></script>
-    <script defer src="../JavaScript/dashboard.js"></script>
+    <script defer type="module" src="../JavaScript/dashboard.js"></script>
     <script defer src="https://kit.fontawesome.com/a673862905.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
+	<%- include('../partials/UserMenu/UserMenu.ejs'); %>
 	<%- include('../partials/LoggedIn.html'); %>
 	<%- include('../partials/Header.html'); %>
     <h1 class="dash-h1"> <%= name %>'s Dashboard </h1>

@@ -8,8 +8,13 @@ export const renderRegister = async (req, res) => {
 export const registerUser = async (req, res) => {
   try {
     const hash = await bcrypt.hash(req.body.password, 10);
-    await User.findOne({ Username: req.body.username })
+    await User.findOne({ Email: req.body.email })
       .then((user) => {
+        if (user) {
+          return res.render("html/register", {
+            err: "This user already exsists",
+          });
+        }
         if (!user) {
           const newUser = new User({
             Username: req.body.username,
@@ -17,16 +22,12 @@ export const registerUser = async (req, res) => {
             Password: hash,
           });
           newUser.save();
-          res.redirect('/login');
-        } else {
-          res.render('html/register', {
-            err: 'This user already exsists'
-          })
+          res.redirect("/login");
         }
       })
       .catch((err) => {
         console.log(err);
-        res.status(400).redirect('/register');
+        res.status(400).redirect("/register");
       });
   } catch (err) {
     console.log(err);
