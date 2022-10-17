@@ -31,6 +31,11 @@ export const addFav = async (req, res) => {
   const user = req.user;
   await Command.findById(id)
     .then((command) => {
+      const allCommands = [...user.FavoriteCommands];
+      const check = allCommands.find((com) => com.Title === command.Title);
+      if (check !== undefined) {
+        return res.status(204).send()
+      }
       user.FavoriteCommands.push(command);
       user.save();
       res.status(204).send();
