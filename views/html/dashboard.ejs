@@ -24,8 +24,8 @@
 </head>
 <body>
 	<%- include('../partials/UserMenu/UserMenu.ejs'); %>
-	<%- include('../partials/LoggedIn.html'); %>
-	<%- include('../partials/Header.html'); %>
+	<%- include('../partials/LoggedIn/LoggedIn.html'); %>
+	<%- include('../partials/Header/Header.html'); %>
     <h1 class="dash-h1"> <%= name %>'s Dashboard </h1>
     <% if (favorites.length < 1) { %>
       <h2>You have no favorite commands. <a href="/">Add Favorites</a></h2>

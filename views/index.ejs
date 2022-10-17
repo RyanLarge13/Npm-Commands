@@ -22,11 +22,11 @@
   </head>
   <body class="flex-col">
   	<% if (user === undefined) { %>
-      <%- include('./partials/Nav.html') %>
+      <%- include('./partials/Nav/Nav.html') %>
     <% } else { %>
-       <%- include('./partials/LoggedIn.html') %>
+       <%- include('./partials/LoggedIn/LoggedIn.html') %>
     <% } %>
-    <%- include('./partials/Header.html') %>
+    <%- include('./partials/Header/Header.html') %>
     <form method="post" accept-charset="utf-8" autocomplete="off">
       <label for="command">New Command</label>
       <input type="text" name="title" id="title" />
