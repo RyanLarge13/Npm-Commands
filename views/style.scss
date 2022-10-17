@@ -16,6 +16,10 @@
   justify-content: center;
   align-items: center;
 }
+//Element styles
+body {
+  overflow-x: hidden;
+}
 
 nav {
   position: fixed;
@@ -169,12 +173,6 @@ form {
       min-height: 15%;
       height: 15vh;
       position: relative;
-
-      h2 {
-      }
-
-      p {
-      }
     }
   }
 }
