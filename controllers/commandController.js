@@ -31,12 +31,9 @@ export const addFav = async (req, res) => {
   const user = req.user;
   await Command.findById(id)
     .then((command) => {
-      if (user.FavoriteCommands.indexOf(command > -1)) return;
-      else {
       user.FavoriteCommands.push(command);
       user.save();
       res.status(204).send();
-      } 
     })
     .catch((err) => {
       console.log(err);
