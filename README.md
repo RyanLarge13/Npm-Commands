@@ -29,5 +29,6 @@ you can run ``` npm start ``` in your terminal and the code should execute.
 
 ## Conclusion
 * If any issues occur you can create an issue on github
-* If you want to contribute to the code please create a pull request the repository
-Enjoy!! 
+* If you want to contribute to the code please create a pull request to the repository
+
+Enjoy!!
